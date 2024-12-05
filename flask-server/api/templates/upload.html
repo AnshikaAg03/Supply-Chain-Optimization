@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>File Upload</title>
+
+    <style>
+       
+    
+        nav {
+            width: 100%; /* Full width for the nav */
+            background-color: black; /* Nav background color */
+            backdrop-filter: blur;
+            padding: 10px 0;
+            margin-bottom: 20px; /* Space between nav and content */
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+    justify-content: flex-start; /* Align content to the left */
+    align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center; /* Center the nav items horizontally */
+            list-style-type: none; /* Remove bullet points */
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px; /* Space between each nav item */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white; /* White text for links */
+            font-weight: bold;
+            padding: 10px 20px;
+        }
+
+        nav ul li a:hover {
+            background-color: #0056b3; /* Darker background on hover */
+            border-radius: 5px; /* Rounded corners on hover */
+        }
+        .frame2 {
+    /* Styling for frame2 */
+    border-radius: 10px;
+    padding: 20px;
+    background-image: url('https://www.sensolus.com/wp-content/uploads/2022/04/Supply-chain-roi-1024x683.png');
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    width: 1350px;
+    margin-bottom: 20px;
+    height: 540px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex; /* Flexbox to align items inside frame2 */
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Adds some spacing inside frame2 */
+}
+
+.frame4-container {
+    display: flex; /* Flexbox to align frame4 divs horizontally */
+    justify-content: center; /* Center the frame4 divs */
+    gap: 50px; /* Space between the two frame4 divs */
+    margin-top: 30px; /* Add some margin from the content above */
+}
+
+.frame4 {
+    border-radius: 10px;
+    padding: 20px;
+    background-color: lightgoldenrodyellow;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    width: 200px;
+    margin-bottom: 20px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+        .frame3 {
+ /* Frame border color */
+            border-radius: 10px; /* Rounded corners for the frame */
+            padding: 20px; /* Padding inside the frame */
+            background-color:rgb(189, 226, 249); /* Background color of the frame */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Shadow effect for the frame */
+            text-align: center; /* Center text inside the frame */
+            width: 600px; /* Width of the frame */
+            margin-bottom: 200px; /* Add space below the frame */
+            margin-top: 200px;
+            height: 150px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            margin-left: 300px;
+            margin-right:300px;
+        }
+        .frame6 {
+ /* Frame border color */
+            border-radius: 10px; /* Rounded corners for the frame */
+            padding: 20px; /* Padding inside the frame */
+            background-color:rgb(189, 226, 249); /* Background color of the frame */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Shadow effect for the frame */
+            text-align: center; /* Center text inside the frame */
+            width: 600px; /* Width of the frame */
+            margin-bottom: 200px; /* Add space below the frame */
+            margin-top: 200px;
+            height: 150px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            margin-left: 300px;
+            margin-right:300px;
+        }
+        .frame5{
+            text-align: left; /* Center text inside the frame */
+            width: 1600px; /* Width of the frame */
+            height:50px;
+            background-image:url('https://www.ilscompany.com/wp-content/uploads/Logistics-supplychainmngmnt-thumbnail.jpg');
+            margin-left: 10px;
+            
+
+        }
+
+        .frame {
+            border: 2px solid #007bff; /* Frame border color */
+            border-radius: 10px; /* Rounded corners for the frame */
+            padding: 20px; /* Padding inside the frame */
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxN_XR5KlV5rrXY9wdUkZ1X8icUeunf6RE1w&s.jpghttps://png.pngtree.com/thumb_back/fh260/back_our/20190628/ourmid/pngtree-light-blue-background-image_264178.jpg'); /* Background color of the frame */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect for the frame */
+            text-align: center; /* Center text inside the frame */
+            width: 1000px; /* Width of the frame */
+            margin-bottom: 20px; /* Add space below the frame */
+            height: 800px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .frame h2 {
+            margin-bottom: 20px; /* Spacing below the title */
+        }
+
+        .frame input[type="file"] {
+            margin: 10px 0; /* Margin around the file input */
+            width: 100%; /* Make the file input take full width */
+            padding: 10px; /* Padding for better aesthetics */
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+
+        .frame input[type="submit"] {
+            background-color: #007bff; /* Button background color */
+            color: white; /* Button text color */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px; /* Padding for the button */
+            width: 100%; /* Make the button take full width */
+            cursor: pointer; /* Pointer cursor on hover */
+            margin-top: 10px; /* Space above the button */
+        }
+
+        .frame input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+
+        #uploaded-data, #summarization-info, #optimization-results, #demand-simulation-results {
+            width: 80%; /* Content width */
+            margin-bottom: 20px; /* Space between sections */
+            border-radius: 10px; /* Rounded corners for the frame */
+            padding: 20px; /* Padding inside the frame */
+            background-color:rgb(189, 226, 249);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Shadow effect for the frame */
+            background-repeat: no-repeat;
+            background-size: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+        h1, h2, h5 {
+            text-align: center;
+            color: white;
+        }
+        h1 {
+            text-align: center;
+            color:black;
+        }
+
+
+        .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+
+    color:white;
+
+}
+.myDiv {
+    border-radius: 10px; /* Rounded corners for the frame */
+            padding: 20px; /* Padding inside the frame */
+            background-color:rgb(189, 226, 249);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Shadow effect for the frame */
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 80%;
+  color:white;
+  align-items: center;
+}
+.myDiv3 {
+    border-radius: 10px; /* Rounded corners for the frame */
+    padding: 20px; /* Padding inside the frame */
+  background-color:rgb(189, 226, 249);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Shadow effect for the frame */
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 80%;
+  color:white;
+  align-items: center;
+  margin-left: 100px;
+}
+.mydiv2{
+ margin-left: 12%;
+ margin-right: 10%;
+}
+.mb-4 {
+    margin-bottom: 1.5rem; /* Space between different file previews */
+}
+
+.text-danger {
+    color: whitesmoke; /* Red color for filenames */
+}
+
+.table-responsive {
+    overflow-x: auto;
+     /* Enable horizontal scrolling for responsive design */
+    margin-left: 20%;
+    margin-right: 20%;
+    color:white
+}
+
+
+.table {
+    width: 60%; /* Full width for tables */
+}
+
+.table th {
+    background-color: #007bff; /* Blue background for headers */
+    color: white; /* White text for headers */
+}
+
+.table td {
+    vertical-align: middle; /* Center cell content vertically */
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6; /* Light border for the table */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: white; /* Set odd rows to white */
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color:lightgoldenrodyellow; /* Light gray for even rows (default) */
+}
+.content-section {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Light background for readability */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Switch styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-left: 20px; /* Add some space between the menu and switch */
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+
+
+input:checked + .slider {
+    background-color: #007bff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Hide the dropdown initially */
+/* Style for navigation list */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Hide the dropdown initially */
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    z-index: 1;
+}
+
+.dropdown li {
+    padding: 8px;
+}
+
+.dropdown li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.dropdown li a:hover {
+    background-color: #ddd;
+}
+
+/* Dropdown on hover or click (use JS for click behavior) */
+li:hover .dropdown {
+    display: block;
+}
+.logo-image {
+  width: 100px; /* Adjust the width to fit your design */
+  height: auto; /* Keep aspect ratio */
+  display: block;
+  margin: 0 auto 10px; /* Center the image and add some space below */
+}
+.logo-image2 {
+  width: auto; /* Adjust the width to fit your design */
+  height: 120px;
+  /* Keep aspect ratio */
+  display: block;
+  margin: 0 auto 10px; /* Center the image and add some space below */
+}
+.logo3-image {
+  width: 150px; /* Adjust the width to fit your design */
+  height: 120px;
+  /* Keep aspect ratio */
+  display: block;
+  margin: 0 auto 10px; /* Center the image and add some space below */
+}
+
+.box {
+  text-align: center; /* Center text and image */
+}
+
+
+    </style>
+</head>
+
+<body style="background-image: url('https://img.freepik.com/free-vector/simple-blue-gradient-background-vector-business_53876-166894.jpg?size=626&ext=jpg&ga=GA1.1.237641234.1728726739&semt=ais_hybrid.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+min-height: 100vh;
+width: 100%;
+margin: 0;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;">
+    <div class="frame5">
+    <h1 style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Supply Chain Optimization</h1>
+    </div>
+    <!-- Navigation Menu -->
+    <nav>
+            <ul>
+                <!-- Home link without dropdown -->
+                <li><a href="/home">Home</a></li>
+        
+                <!-- Normal Analysis Dropdown -->
+                <li>
+                    <a href="#" id="normal-analysis-link">Normal Analysis</a>
+                    <ul id="normal-dropdown" class="dropdown">
+                        <li><a href="/">Upload files</a></li>
+                        <li><a href="/preview">Preview Uploaded Files</a></li>
+                        <li><a href="/summarize">Summarization</a></li>
+                        <li><a href="/demand_simulation">Demand Simulation</a></li>
+                        <li><a href="/countrywise">Countrywise Breakdown</a></li>
+                    </ul>
+                </li>
+        
+                <!-- Advanced Analysis Dropdown -->
+                <li>
+                    <a href="#" id="advanced-analysis-link">Advanced Analysis</a>
+                    <ul id="advanced-dropdown" class="dropdown">
+                        <li><a href="/submit_new_files">Submit New Files</a></li>
+                        <li><a href="/preview_new">Preview New Files</a></li>
+                        <li><a href="/summarize_tax">CO2 Tax Summarization</a></li>
+                        <li><a href="/ESG Score">Get ESG Scores</a></li>
+                        <li><a href="/ESG Optimization">ESG Optimization</a></li>
+                    </ul>
+                </li>
+            </ul>
+    </nav>
+
+    <!-- File upload form within a frame -->
+    {% if show_home %}
+    <div class="frame2">
+        <h2 style="color:black; font-family:Georgia, 'Times New Roman', Times, serif;">About this app</h2>    
+                 <!-- Flexbox container for the frame4 elements -->
+        <p style="font-size: 20px;  background-color:rgb(189, 226, 249);font-family: Arial, Helvetica, sans-serif;"><b><I>Our app optimizes supply chains by cutting costs, lowering carbon emissions, and boosting ESG scores. It analyzes costs, carbon output, and sustainability metrics to help companies comply with regulations like the EU Carbon Border tax. By balancing production, maximizing capacity, and reducing bottlenecks, the app improves profitability and ensures a sustainable, adaptable supply chain that meets future ESG demands without compromising current performance.</I></b></p>          
+        <div class="frame4-container">
+                <div class="frame4">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4552/4552174.png" alt="Logo 1" class="logo-image2">
+                    <b>FACTORY LOCATION</b>  
+                </div>  
+                <div class="frame4">
+                    <img src="https://png.pngtree.com/png-vector/20220513/ourmid/pngtree-ecological-stop-co2-emissions-sign-on-white-background-png-image_4595665.png" alt="Logo 1" class="logo-image2">
+                  <b>CO2 OPTIMIZATION</b> 
+                </div> 
+                <div class="frame4">
+                  <img src="https://cdn-icons-png.flaticon.com/512/8541/8541904.png" alt="Logo 1" class="logo-image">
+                  <b>ESG SCORE OPTIMIZATION</b>  
+                </div>  
+                <div class="frame4">
+                    <img src="https://img.freepik.com/premium-vector/world-globe-with-flight-paths-transport-logistics-background_1322560-51536.jpg?semt=ais_hybrid.jpg" alt="Logo 1" class="logo3-image">
+                    <b>TRANSPORTATION</b>  
+                </div>    
+            </div>
+        </div>
+    </div>
+    </div>
+    {% endif %}
+    {% if show_upload_form %}
+    <div class="frame2">
+        <div class="frame3">    
+            <h3 style="color:black; font-family:Georgia, 'Times New Roman', Times, serif;">Upload Excel Files</h3>   
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="files" multiple>
+                <input type="submit" value="Upload">
+            </form>
+            <p style="color:black"><b>Select the files to get various optimization-results</b></p>
+        </div>
+    </div>
+    {% endif %}
+<!-- Preview uploaded data -->
+    {% if show_preview %}
+    <div id="file-data-table-container" class="myDiv">
+    {% if uploaded_data %}
+        <h2 style="color:white">Uploaded Files Preview</h2>
+        <div class="table-responsive">
+            {{ uploaded_data | safe }}
+        </div>
+    {% else %}
+        <p>No files uploaded yet.</p>
+    {% endif %}
+    </div>
+
+<!-- About This Application Section -->
+      <div class="content-section">
+         <h2>About This Application</h2>
+            <p>This application helps optimize supply chain processes by allowing users to upload Excel files for analysis. It provides features like summarization, demand simulation, and country-wise breakdown of product flow.</p>
+      </div>
+{% endif %}
+
+    
+
+
+    <!-- Additional preview information (optional) -->
+    {% if preview_info %}
+        <h2 style="color:green"><b>Preview Details</b></h2>
+        <div id="file-preview" class="myDiv">
+            {{ preview_info | safe }}
+        </div>
+    {% endif %}
+
+    <!-- Summarization Section -->
+    {% if show_summarization %}
+    <div id="summarization-info" class="myDiv">
+        <h1 style="color:black; font-family:Georgia, 'Times New Roman', Times, serif;">Summarization</h1>
+        {% if summary_info %}
+            <p style="color: green;" ><b>Status: {{ summary_info.status }}</b></p>
+            <p style="color: green;"><b>Objective Value: ₹{{ summary_info.objective_value }}</b></p>
+            <p style="color: green;"><b>Fixed Costs: ₹{{ summary_info.fixed_costs }}</b></p>
+            <p style="color: green;"><b>Variable Costs: ₹{{ summary_info.variable_costs }}</b></p>
+        {% else %}
+            <p>No summary available yet.</p>
+        {% endif %}
+
+        <!-- Plotly Plot -->
+        {% if plot_html %}
+            <div id="plot-container" class="mydiv2">
+                {{ plot_html | safe }}
+            </div>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- Optimization results -->
+    {% if optimization_results %}
+    <div id="optimization-results">
+        <h5 class="small-header">Optimization Results</h5>
+        {{ optimization_results | safe }}
+    </div>
+    {% endif %}
+
+    <!-- Demand simulation results -->
+    {% if demand_simulation_results %}
+    <div id="demand-simulation-results">
+        <h2 style="color:black;font-family:Georgia, 'Times New Roman', Times, serif;">Demand Simulation Results</h2>
+        {% if demand_simulation_results %}
+            <div class="table-responsive" >
+                {{ demand_simulation_results | safe }}
+            </div>
+            <a href="{{ demand_simulation_file_path }}" class="btn btn-primary" download >Download Demand Simulation Data</a>
+        {% else %}
+            <p>No results available yet.</p>
+        {% endif %}
+
+        <!-- Interactive plot -->
+        {% if plot_path %}
+        <h2  style="color:black;font-family:Georgia, 'Times New Roman', Times, serif;">Demand Simulation Plot</h2>
+        <iframe src="{{ url_for('static', filename='uploads/demand_simulation_plot.html') }}" width="100%" height="600px"></iframe>
+        {% else %}
+        <p>No plot available.</p>
+        {% endif %}
+
+        <!-- Boolean Heatmap plot -->
+        {% if plot_html_2 %}
+            <h2  style="color:black;font-family:Georgia, 'Times New Roman', Times, serif;">Demand Simulation - Boolean Heatmap</h2>
+            <div id="plot-container">
+                {{ plot_html_2 | safe }}
+            </div>
+        {% else %}
+            <p>No second plot available yet.</p>
+        {% endif %}
+             <!-- Unique Combination Plot (Matplotlib plot) -->
+             {% if unique_combination_plot %}
+             <h2  style="color:black;font-family:Georgia, 'Times New Roman', Times, serif;">Demand Simulation - Unique Combination Grid</h2>
+             <div>
+                 <img src="data:image/png;base64,{{ unique_combination_plot }}" alt="Unique Combination Plot">
+             </div>
+         {% else %}
+             <p>No unique combination plot available yet.</p>
+         {% endif %}
+ 
+     </div>
+    {% endif %}
+    <!-- Country-wise Breakdown -->
+    <div class="myDiv">
+        {% if country_breakdown %}
+           <div id="country-wise-breakdown">
+               <h2  style="color:black;font-family:Georgia, 'Times New Roman', Times, serif;">Country-wise Breakdown of Product Flow</h2>
+                 <div>{{ country_breakdown | safe }}</div>
+            </div>
+    {% else %}
+
+    {% endif %}
+    <!-- Amount Stacked Graph -->
+<div style="text-align: center;">  <!-- Center alignment for the text and graphs -->
+    {% if amount_fig %}
+        <div id="amount-graph" class="mydiv2" style="display: inline-block;">  <!-- Inline block to center the graph -->
+            <h2 style="color:black; font-family: Georgia, 'Times New Roman', Times, serif;">
+                Amount of Products Received by Country
+            </h2>
+            <div>{{ amount_fig | safe }}</div>
+        </div>
+    {% endif %}
+</div>
+
+<!-- Cost Stacked Graph -->
+<div style="text-align: center;">  <!-- Center alignment for the text and graphs -->
+    {% if cost_fig %}
+        <div id="cost-graph" class="mydiv2" style="display: inline-block;">  <!-- Inline block to center the graph -->
+            <h2 style="color:black; font-family: Georgia, 'Times New Roman', Times, serif;">
+                Cost of Products Received by Country
+            </h2>
+            <div>{{ cost_fig | safe }}</div>
+        </div>
+    {% endif %}
+</div>
+
+<!-- File upload form within a frame -->
+{% if show_upload_new_form %}
+    <div class="frame3">    
+        <h3 style="color:black; font-family:Georgia, 'Times New Roman', Times, serif;">Upload Excel Files</h3>   
+        <form action="/submit_new_files" method="post" enctype="multipart/form-data">
+            <input type="file" name="files" multiple>
+            <input type="submit" value="Upload">
+        </form>
+        <p style="color:black"><b>Select the files to get various optimization-results</b></p>
+    </div>    
+{% endif %}
+
+{% if preview_new_info %}
+    <h2 style="color:green"><b>Uploaded Files Preview</b></h2>
+    <div id="file-preview" class="myDiv3">    
+        {{ preview_new_info | safe }}
+    </div>
+{% else %}
+{% endif %}
+{% if results and results_1 %}
+<div style="display: flex; justify-content: space-between;">
+
+    <!-- Non-Tax Optimized Results -->
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <!-- Tax Optimized Results -->
+        <div style="width: 48%; padding: 15px; border: 1px solid #ccc; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); text-align: center; margin-bottom: 20px;background-color: lightgoldenrodyellow; height: 600px;">
+            <h1 style="color:black; font-family:Georgia, 'Times New Roman', Times, serif;">CO2 Tax Optimized Summarization</h1>
+            <p style="color: green; background-color: lightpink; padding: 10px;"><b>Status: {{ results_1.status }}</b></p>
+            <p style="color: green; background-color: lightpink; padding: 10px;"><b>Objective Value: ₹{{ results_1.objective_value }}</b></p>
+            <p style="color: green; background-color: lightpink; padding: 10px;"><b>Fixed Costs: ₹{{ results_1.fixed_costs }}</b></p>
+            <p style="color: green; background-color: lightpink; padding: 10px;"><b>Variable Costs: ₹{{ results_1.variable_costs }}</b></p>
+            <p style="color: green; background-color: lightpink; padding: 10px;"><b>Freight Cost: ₹{{ results_1.freight_cost }}</b></p>
+            <p style="color: green; background-color: lightpink; padding: 10px;"><b>CO2 Tax: ₹{{ results_1.tax }}</b></p>
+            <p style="color: green; background-color: lightpink; padding: 10px;"><b>Total Cost: ₹{{ results_1.objective_value }}</b></p>
+        </div>
+    
+        <!-- Non-Tax Optimized Results -->
+        <div style="width: 48%; padding: 15px; border: 1px solid #ccc; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); text-align: center;background-color: lightgoldenrodyellow; height: 600px;">
+            <h1 style="color:black; font-family:Georgia, 'Times New Roman', Times, serif;">Non-Tax Optimized Summarization</h1>
+            <p style="color: green; background-color: lightgreen; padding: 10px;"><b>Status: {{ results.status }}</b></p>
+            <p style="color: green; background-color: lightgreen; padding: 10px;"><b>Objective Value: ₹{{ results.objective_value }}</b></p>
+            <p style="color: green; background-color: lightgreen; padding: 10px;"><b>Fixed Costs: ₹{{ results.fixed_costs }}</b></p>
+            <p style="color: green; background-color: lightgreen; padding: 10px;"><b>Variable Costs: ₹{{ results.variable_costs }}</b></p>
+            <p style="color: green; background-color: lightgreen; padding: 10px;"><b>Freight Cost: ₹{{ results.freight_cost }}</b></p>
+            <p style="color: green; background-color: lightgreen; padding: 10px;"><b>CO2 Tax: ₹{{ results.tax }}</b></p>
+            <p style="color:green; background-color: lightgreen; padding: 10px;"><b>Total Cost: ₹{{ results.objective_value + results.tax }}</b></p>
+        </div>
+    </div>
+    
+</div>
+
+<!-- Plot HTML -->
+<div style="margin-top: 20px; text-align: center;">
+    {{ plot_html|safe }}  <!-- Render the plot -->
+</div>
+
+
+{% endif %}
+<!-- File upload form within a frame -->
+
+    {% if show_upload_form_1 %}
+        <div class="frame3">    
+            <h3 style="color:black; font-family:Georgia, 'Times New Roman', Times, serif;">Upload Excel Files</h3>   
+            <form action="/ESG Score" method="post" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <input type="submit" value="Upload">
+            </form>
+            <p style="color:black"><b>Select the file to get ESG scores</b></p>
+        </div>    
+    {% elif request.path == '/ESG Score' %}
+        <div class="container mt-4">
+            <h3 style="color:black; font-family:Georgia, 'Times New Roman', Times, serif; text-align:center;">Uploaded ESG Data</h3>
+            <div class="table-responsive ">
+                {{ uploaded_data_1|safe }}
+            </div>
+
+            <h3 style="color:black; font-family:Georgia, 'Times New Roman', Times, serif; text-align:center; margin-top:30px;">Calculated ESG Scores</h3>
+            <div class="table-responsive">
+                {{ esg_plot|safe }}
+            </div>
+        </div>
+    {% endif %}
+
+    {% if esg_tax %}
+    <div class="container mt-4">
+        <h3 style="color:black; font-family:Georgia, 'Times New Roman', Times, serif; text-align:center;">ESG Optimization Mechanism</h3>
+        <div class="table-responsive">
+            {{ esg_tax|safe }}
+        </div>
+
+        <!-- Add a boxed Results heading -->
+        <div class="border p-4 mt-4" style="border: 3px solid #4caf50; border-radius: 8px; background-color: #f0f8e7; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <h4 style="color: #333; font-family: 'Georgia', 'Times New Roman', serif; text-align: center;">Results</h4>
+        </div>
+        
+        
+        <div class="row mt-5">
+            <!-- Optimized Section -->
+            <div class="col-md-6 text-center">
+                <div class="border p-3" style="border: 2px solid #28a745; border-radius: 10px;">
+                    <h4 style="color: #28a745; font-family:Georgia, 'Times New Roman', Times, serif;">Optimized</h4>
+                    <div style="font-size: 20px;">
+                        <div class="border p-2 mb-2" style="background-color: #dff0d8; border-radius: 5px;">
+                            <p style="color: #155724;">1. USA</p>
+                        </div>
+                        <div class="border p-2 mb-2" style="background-color: #dff0d8; border-radius: 5px;">
+                            <p style="color: #155724;">2. Germany</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Non-Optimized Section -->
+            <div class="col-md-6 text-center">
+                <div class="border p-3" style="border: 2px solid #dc3545; border-radius: 10px;">
+                    <h4 style="color: #dc3545; font-family:Georgia, 'Times New Roman', Times, serif;">Non-Optimized</h4>
+                    <div style="font-size: 20px;">
+                        <div class="border p-2 mb-2" style="background-color: #f8d7da; border-radius: 5px;">
+                            <p style="color: #721c24;">1. India</p>
+                        </div>
+                        <div class="border p-2 mb-2" style="background-color: #f8d7da; border-radius: 5px;">
+                            <p style="color: #721c24;">2. Brazil</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    {% endif %}
+
+</div>
+<script src="script.js"></script>
+
+</body>
+
+</html>

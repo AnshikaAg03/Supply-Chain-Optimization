@@ -1,0 +1,27 @@
+{
+    "status": "Optimal",
+    "objective_value": 748690000.0,
+    "fixed_costs": 21750000.0,
+    "variable_costs": 5700000.0,
+    "freight_cost": 665000000.0,
+    "tax": 56240000.0,
+    "plant_decisions": {
+        "('USA', 'LOW')": 0.0,
+        "('GERMANY', 'LOW')": 1.0,
+        "('JAPAN', 'LOW')": 0.0,
+        "('BRAZIL', 'LOW')": 0.0,
+        "('INDIA', 'LOW')": 0.0,
+        "('USA', 'HIGH')": 1.0,
+        "('GERMANY', 'HIGH')": 1.0,
+        "('JAPAN', 'HIGH')": 0.0,
+        "('BRAZIL', 'HIGH')": 0.0,
+        "('INDIA', 'HIGH')": 0.0
+    },
+    "production_quantities": {
+        "('USA', 'Italy')": 200000.0,
+        "('GERMANY', 'Italy')": 300000.0,
+        "('JAPAN', 'Italy')": 0.0,
+        "('BRAZIL', 'Italy')": 0.0,
+        "('INDIA', 'Italy')": 0.0
+    }
+}
