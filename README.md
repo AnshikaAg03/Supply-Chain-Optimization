@@ -4,15 +4,21 @@
 This Flask-based web application streamlines supply chain optimization by integrating *CO2 emissions-based taxation logic (by EU Standards)*. It offers demand simulation, country-wise analysis, and ESG-focused optimization tools to support decision-making for sustainability and efficiency.
 
 ---
+![Screenshot (452)](https://github.com/user-attachments/assets/a1a473b0-e5a4-491e-b928-51f47b5ba1c2)
+
+
 
 ## Features
 
 ### *Basic Optimization*
 - *Upload and Preview Datasets*: Seamlessly upload and validate datasets for analysis.
+  ![Screenshot 2024-12-05 191831](https://github.com/user-attachments/assets/7fe6c379-df9c-4b3f-84e9-9addb19fa148)
 - *Summarization*: 
    - Interactive globe visualization for data insights.
    - Paths with condensed information of the route
-   - Uploaded Data Summarized in a visual manner 
+   - Uploaded Data Summarized in a visual manner
+    ![Screenshot 2024-10-15 122029](https://github.com/user-attachments/assets/7b8ed062-e56c-4d05-b8d3-f36a9f67c330)
+
 - *Demand Simulation*: 
    - Model various demand scenarios based on uploaded data. 
    - Provides supply chain optimization for each of these Senarios.
@@ -29,7 +35,7 @@ This Flask-based web application streamlines supply chain optimization by integr
    - Incorporates CO2 data for actionable tax calculations.
    - Aligns with EU standards to encourage reduced emissions.
 
-###*Detailed Results Display*
+### *Detailed Results Display*
    - Comprehensive visualization of decision variables and optimization outcomes.
    - Separate sections for *'Optimized'* and *'Non-Optimized'* wrt CO2 emissions.
 
